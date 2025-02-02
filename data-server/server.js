@@ -1,0 +1,17 @@
+const express = require("express");
+const bodyParser = require("body-parser");
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(bodyParser.json());
+
+app.post("/data", (req, res) => {
+    const moistureData = req.body.value;
+    console.log("Mottatt fuktighetsdata: ", moistureData);
+    res.status(200).send({status: "Data mottatt", value: moistureData});
+});
+
+app.listen(port, () => {
+    console.log("Server kjører på http://localhost:" + port);
+});
