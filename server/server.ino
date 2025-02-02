@@ -1,7 +1,7 @@
 #include <WiFi.h>
 #include <WebServer.h>
 
-#define AOUT_PIN 12
+#define AOUT_PIN 34
 
 const char* ssid = "Mathias Evjens Nettverk";
 const char* password = "LisanAlGaib";
@@ -13,7 +13,11 @@ void handleDataRequest() {
   server.sendHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   server.sendHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  String moistureData = String(analogRead(AOUT_PIN));
+  int moisture = analogRead(AOUT_PIN);
+  Serial.println("\nRaw moisture:");
+  Serial.println(moisture);
+  int moisturePct = map(moisture, 0, 4095, 0, 100);
+  String moistureData = String(moisturePct);
   String jsonMoistureData ="{\"value\": " + moistureData + "}";
   server.send(200, "application/json", jsonMoistureData);
   Serial.println("Sent moisture data: " + moistureData);
