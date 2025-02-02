@@ -1,14 +1,10 @@
 import BluetoothComponent from './BluetoothComponent'
+import MoistureData from './MoistureData'
 
 function App() {
   return (
     <>
-      <div>
-        <header>
-          <h1>ESP32 Bluetooth Data</h1>
-          <BluetoothComponent/>
-        </header>
-      </div>
+      <MoistureData />
     </>
   )
 }
