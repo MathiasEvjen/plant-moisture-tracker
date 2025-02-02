@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const MoistureData = () => {
     const [moistureData, setMoistureData] = useState("");
-    const ESPIP = "http://192.168.4.30/data";
+    const ESPIP = "https://plant-moisture-tracker.onrender.com/data";
 
     useEffect(() => {
         const fetchData = async () => {
