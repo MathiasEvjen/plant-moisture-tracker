@@ -1,4 +1,5 @@
 {
+  "proxy": "https://plant-moisture-tracker.onrender.com/data",
   "name": "web",
   "private": true,
   "version": "0.0.0",
