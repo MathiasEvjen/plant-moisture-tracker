@@ -10,7 +10,6 @@ const MoistureData = () => {
                 const response = await fetch(ESPIP);
                 console.log(response);
                 const data = await response.json();
-                console.log(data.text());
                 setMoistureData(data.value);
                 console.log("Hentet data: " + data.value);
             } catch (error) {
@@ -19,14 +18,14 @@ const MoistureData = () => {
             }
         };
 
-        const interval = setInterval(fetchData, 1500);
+        const interval = setInterval(fetchData, 20000);
         return () => clearInterval(interval);
     }, []);
 
     return (
         <div>
             <h1>Moisture Data:</h1>
-            <h2>{moistureData}</h2>
+            <h2>{moistureData}%</h2>
         </div>
     );
 }
