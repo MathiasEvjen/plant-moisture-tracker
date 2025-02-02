@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 
 const MoistureData = () => {
     const [moistureData, setMoistureData] = useState("");
-    const ESPIP = "https://plant-moisture-tracker.onrender.com/data";
+    const serverURL = "https://plant-moisture-tracker-back.onrender.com/data";
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(ESPIP);
+                const response = await fetch(serverURL);
                 console.log(response);
                 const data = await response.json();
                 console.log(data.text());
