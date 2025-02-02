@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const MoistureData = () => {
     const [moistureData, setMoistureData] = useState("");
-    const serverURL = "https://plant-moisture-tracker-back.onrender.com/data";
+    const serverURL = "https://plant-moisture-tracker.onrender.com/data";
 
     useEffect(() => {
         const fetchData = async () => {
