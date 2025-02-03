@@ -14,6 +14,11 @@ app.post("/data", (req, res) => {
     res.status(200).send({status: "Data mottatt", value: moistureData});
 });
 
+app.get("/data", (req, res) => {
+    res.getHeader("Content-Type", "application/json");
+    res.json({value: 42});
+});
+
 app.listen(port, () => {
     console.log("Server kjører på http://localhost:" + port);
 });
