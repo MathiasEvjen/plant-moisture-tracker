@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 const MoistureData = () => {
-    const [moistureData, setMoistureData] = useState("");
-    const serverURL = "https://plant-moisture-tracker.onrender.com/data";
+    const [moistureData, setMoistureData] = useState("Henter data...");
+    const serverURL = "http://192.168.4.30/data";
 
     useEffect(() => {
         const fetchData = async () => {
@@ -10,7 +10,6 @@ const MoistureData = () => {
                 const response = await fetch(serverURL);
                 console.log(response);
                 const data = await response.json();
-                console.log(data.text());
                 setMoistureData(data.value);
                 console.log("Hentet data: " + data.value);
             } catch (error) {
