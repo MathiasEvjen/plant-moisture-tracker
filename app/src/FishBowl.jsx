@@ -2,38 +2,45 @@ import leavesImg from "./assets/leaves.png"
 import leavesDyingImg from "./assets/leaves_dying.png"
 
 const FishBowl = (props) => {
-    const radius = 155;
-    const thickness = 10;
+    // Setter variabler for størrelsen på fiskebollen
+    const radius = 170;
+    const thickness = 15;
     const normalizedRadius = radius - thickness / 2;
 
+    // Setter tekst, styling og bilde utifra type data og fuktighetsnivå
     const pctText = props.isData ? props.moistureData + "%" : props.moistureData;
     const pctStyle = props.isData ? "pct-text" : "pct-text-no-data";
-
     const leaves = props.pct < 20 && props.isData ? leavesDyingImg : leavesImg;
 
     return(
         <div className="flex items-center justify-center">
+            {/* Fiskebolle-grafikk */}
             <svg
                 height={radius * 2}
                 width={radius * 2}
                 viewBox={`0 0 ${radius * 2} ${radius * 2}`}
                 >
+                    {/* Definerer SVG-elementer */}
                     <defs>
+                        {/* Pattern for bilde av blader */}
                         <pattern
                             id="image-pattern"
                             patternUnits="userSpaceOnUse"
                             width={radius * 2}
                             height={radius * 2}
                         >
+                            {/* Størrelse og plassering på bilde */}
                             <image
                                 href={leaves}    
-                                x="5%"
-                                y="13%"
-                                width={radius * 1.6}
+                                x="8%"
+                                y="14%"
+                                width={radius * 1.5}
                                 height={radius}
                                 preserveAspectRatio="xMidYMid slice"
                             />
                         </pattern>
+
+                        {/* Mask for fiskebollen */}
                         <mask id="fill-mask">
                             <rect
                                 x="0"
@@ -57,7 +64,8 @@ const FishBowl = (props) => {
                             />
                         </mask>
                     </defs>
-
+                    
+                    {/* Bakgrunnen i fiskebollen */}
                     <circle 
                         className="circle"
                         cx={radius}
@@ -67,6 +75,7 @@ const FishBowl = (props) => {
                         
                     />
 
+                    {/* Vannet i fiskebollen */}
                     <circle 
                         cx={radius}
                         cy={radius}
@@ -76,6 +85,7 @@ const FishBowl = (props) => {
                         opacity="0.7"
                     />
 
+                    {/* Kanten på fiskebollen */}
                     <circle
                         cx={radius}
                         cy={radius}
@@ -85,6 +95,7 @@ const FishBowl = (props) => {
                         strokeWidth={thickness} 
                     />
 
+                    {/* Bildet av bladene */}
                     <circle 
                         cx={radius}
                         cy={radius}
@@ -92,6 +103,7 @@ const FishBowl = (props) => {
                         fill="url(#image-pattern)"
                     />
                     
+                    {/* Teksten i fiskebollen */}
                     <text
                         className={pctStyle}
                         x="50%"

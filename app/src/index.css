@@ -5,6 +5,7 @@ body {
     background-color: rgb(250, 235, 188);
 }
 
+/* Styling for overskrift */
 .overskrift {
     font-size: 2.7em;
     text-shadow: 1px 0 black,
@@ -13,13 +14,16 @@ body {
                  0 -1px black;
 
     padding-bottom: 2em;
+    padding-left: 0.5em;
 }
 
+/* Styling for teksten som viser fuktighetsprosent */
 .pct-text {
     font-size: 3em;
     font-weight: 900;
 }
 
+/* Styling for teksten for når data ikke vises */
 .pct-text-no-data {
     font-size: 2em;
     font-weight: 900;

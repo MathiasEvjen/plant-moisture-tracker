@@ -7,6 +7,7 @@ const MoistureData = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            // Prøver å hente data fra ESP32 og legger det i moistureData
             try {
                 const response = await fetch(serverURL);
                 console.log(response);
@@ -14,6 +15,7 @@ const MoistureData = () => {
                 setMoistureData(data.value);
                 console.log("Hentet data: " + data.value);
                 setIsData(true);
+            // Printer feilmelding dersom server ikke kan hente data fra ESP32
             } catch (error) {
                 console.error("Feil ved henting av data: " + error);
                 setMoistureData("Feil ved henting");
@@ -21,10 +23,11 @@ const MoistureData = () => {
             }
         };
 
+        // Intervall for å hente data satt til hvert sekund
         const interval = setInterval(fetchData, 1000);
         return () => clearInterval(interval);
     }, []);
-
+    
     return (
         <div>
             <FishBowl pct={moistureData} moistureData={moistureData} isData={isData}/>
