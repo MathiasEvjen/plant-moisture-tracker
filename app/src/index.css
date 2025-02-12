@@ -1,0 +1,26 @@
+body {
+    font-family: Papyrus;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(250, 235, 188);
+}
+
+.overskrift {
+    font-size: 2.7em;
+    text-shadow: 1px 0 black,
+                 -1px 0 black,
+                 0 1px black,
+                 0 -1px black;
+
+    padding-bottom: 2em;
+}
+
+.pct-text {
+    font-size: 3em;
+    font-weight: 900;
+}
+
+.pct-text-no-data {
+    font-size: 2em;
+    font-weight: 900;
+}
